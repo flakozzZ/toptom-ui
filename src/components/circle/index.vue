@@ -1,20 +1,21 @@
 <script lang='ts'>
 export default {
-  name: "circle-component"
+  name: 'circle-component'
 }
 </script>
 
 <template>
   <template v-for='(item, index) in items' :key='item.key'>
-      <line-component :is-active='item.isActive' v-if='index > 0'/>
-      <div class='circle-container'>
-        <div class='outer-circle' @mouseover='showTooltip(index)' @mouseout='hideTooltip' :class='{active: item.isActive}'>
-          <div class='inner-circle' :class='{active: item.isActive}'></div>
-        </div>
-        <div class='circle-text' :class='{active: item.isActive}'>{{ item.text }}</div>
+    <line-component :is-active='item.isActive' v-if='index > 0' />
+    <div class='circle-container'>
+      <div class='outer-circle' @mouseover='showTooltip(index)' @mouseout='hideTooltip'
+           :class='{active: item.isActive}'>
+        <div class='inner-circle' :class='{active: item.isActive}'></div>
       </div>
+      <div class='circle-text' :class='{active: item.isActive}'>{{ item.text }}</div>
+    </div>
     <div class='tooltip'>
-      <tooltip-component v-if='tooltipIndex == index' :text='item.tooltipText'/>
+      <tooltip-component v-if='tooltipIndex == index' :text='item.tooltipText' />
     </div>
   </template>
 </template>
@@ -41,7 +42,7 @@ withDefaults(defineProps<Props>(), {})
 const tooltipIndex = ref<number | null>(null)
 
 
-const showTooltip =  (index: number) => {
+const showTooltip = (index: number) => {
   tooltipIndex.value = index
 }
 
@@ -50,8 +51,6 @@ const hideTooltip = () => {
 }
 
 </script>
-
-
 
 
 <style scoped lang='scss'>
@@ -71,6 +70,7 @@ const hideTooltip = () => {
   position: relative;
   overflow: hidden;
   z-index: 1;
+
   &.active {
     background: #FA4D1E;
   }
@@ -85,6 +85,7 @@ const hideTooltip = () => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   &.active {
     background: #FFFFFF;
   }
@@ -102,6 +103,7 @@ const hideTooltip = () => {
   z-index: 0;
   line-height: 20px;
   font-weight: 500;
+
   &.active {
     color: #0F0E14;
   }

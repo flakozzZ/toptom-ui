@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style scoped>
 .line {
-  width: 83px;
+  width: 153px;
   height: 4px;
   background: #D0D5DD;
   border-radius: 10px;
