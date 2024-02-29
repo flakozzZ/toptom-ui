@@ -14,9 +14,6 @@ export default {
       </div>
       <div class='circle-text' :class='{active: item.isActive}'>{{ item.text }}</div>
     </div>
-    <div class='tooltip'>
-      <tooltip-component v-if='tooltipIndex == index' :text='item.tooltipText' />
-    </div>
   </template>
 </template>
 
@@ -109,11 +106,5 @@ const hideTooltip = () => {
   }
 }
 
-.tooltip {
-  position: absolute;
-  top: calc(50% + 40px); /* Adjust the value based on your design */
-  left: 50%;
-  transform: translateX(-50%);
-}
 </style>
 
